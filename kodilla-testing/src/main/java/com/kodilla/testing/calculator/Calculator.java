@@ -17,26 +17,3 @@ public class Calculator {
         return a - b;
     }
 }
-
-class TestingMain {
-    public static void main(String[] args) {
-        Calculator calc = new Calculator(5,6);
-
-        System.out.println("Test jednostkowy nr 1 - metoda ADD");
-        int sum = calc.add();
-        if (sum == (5 + 6)) {
-            System.out.println("test metody ADD - OK");
-        } else {
-            System.out.println("Error!");
-        }
-
-        System.out.println("Test jednostkowy nr 2 - metoda SUBTRACT");
-        int subtract = calc.subtract();
-        if (subtract == (5 - 6)) {
-            System.out.println("test metody SUBTRACT - OK");
-        } else {
-            System.out.println("Error!");
-        }
-
-    }
-}
