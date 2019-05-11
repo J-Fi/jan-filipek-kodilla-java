@@ -28,23 +28,8 @@ public class CollectionTestSuite {
         List<Integer> onlyEvenNumbers = exterminator.exterminate(listOfNumbers);
         System.out.println("Testing: " + onlyEvenNumbers);
         //Then
-        List<Integer> onlyEvenList = new ArrayList<>();
-        onlyEvenList.add(2);
-        onlyEvenList.add(4);
-        onlyEvenList.add(6);
-        onlyEvenList.add(8);
-        onlyEvenList.add(10);
-        onlyEvenList.add(12);
-        Assert.assertTrue(onlyEvenNumbers.containsAll(onlyEvenList));
-        List<Integer> onlyOddList = new ArrayList<>();
-        onlyOddList.add(1);
-        onlyOddList.add(3);
-        onlyOddList.add(5);
-        onlyOddList.add(7);
-        onlyOddList.add(9);
-        onlyOddList.add(11);
-        onlyOddList.add(13);
-        Assert.assertFalse(onlyEvenNumbers.containsAll(onlyOddList));
+        Assert.assertTrue(onlyEvenNumbers.containsAll(Arrays.asList(2,4,6,8,10,12)));
+        Assert.assertFalse(onlyEvenNumbers.containsAll(Arrays.asList(1,3,5,7,9,11,13)));
     }
     @Test
     public void testOddNumbersExterminatorEmptyList() {
@@ -55,6 +40,6 @@ public class CollectionTestSuite {
         List<Integer> onlyEvenNumbers1 = exterminator.exterminate(listOfNumbers1);
         System.out.println("Testing: " + onlyEvenNumbers1);
         //Then
-        Assert.assertTrue(onlyEvenNumbers1 instanceof ArrayList && onlyEvenNumbers1.size() == 0);
+        Assert.assertTrue(onlyEvenNumbers1.containsAll(Arrays.asList()));
     }
 }
