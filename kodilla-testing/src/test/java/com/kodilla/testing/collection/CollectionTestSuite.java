@@ -6,6 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class CollectionTestSuite {
     @Before
@@ -19,29 +22,37 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumberExterminatorNormalList() {
         //Given
-        OddNumbersExterminator one = new OddNumbersExterminator();
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        List<Integer> listOfNumbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13);
         //When
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 15; i++) { //czy w parametrach pętli użycie typu Integer dla zmiennej i zamiast typu prostego int typu Integer spowolni aplikacje?
-            Integer j = i;
-            list.add(j);
-        }
-        ArrayList<Integer> onlyEvenNumbers = one.exterminate(list);
-        double isEven = 0;
-        for(int i = 0; i < onlyEvenNumbers.size(); i++) {
-             isEven += onlyEvenNumbers.get(i) % 2;
-        }
+        List<Integer> onlyEvenNumbers = exterminator.exterminate(listOfNumbers);
         System.out.println("Testing: " + onlyEvenNumbers);
         //Then
-        Assert.assertTrue(onlyEvenNumbers instanceof ArrayList && isEven == 0);
+        List<Integer> onlyEvenList = new ArrayList<>();
+        onlyEvenList.add(2);
+        onlyEvenList.add(4);
+        onlyEvenList.add(6);
+        onlyEvenList.add(8);
+        onlyEvenList.add(10);
+        onlyEvenList.add(12);
+        Assert.assertTrue(onlyEvenNumbers.containsAll(onlyEvenList));
+        List<Integer> onlyOddList = new ArrayList<>();
+        onlyOddList.add(1);
+        onlyOddList.add(3);
+        onlyOddList.add(5);
+        onlyOddList.add(7);
+        onlyOddList.add(9);
+        onlyOddList.add(11);
+        onlyOddList.add(13);
+        Assert.assertFalse(onlyEvenNumbers.containsAll(onlyOddList));
     }
     @Test
     public void testOddNumbersExterminatorEmptyList() {
         //Given
-        OddNumbersExterminator two = new OddNumbersExterminator();
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        List<Integer> listOfNumbers1 = new ArrayList<>();
         //When
-        ArrayList<Integer> list1 = new ArrayList<>();
-        ArrayList<Integer> onlyEvenNumbers1 = two.exterminate(list1);
+        List<Integer> onlyEvenNumbers1 = exterminator.exterminate(listOfNumbers1);
         System.out.println("Testing: " + onlyEvenNumbers1);
         //Then
         Assert.assertTrue(onlyEvenNumbers1 instanceof ArrayList && onlyEvenNumbers1.size() == 0);
