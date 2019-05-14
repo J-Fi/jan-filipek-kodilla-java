@@ -7,7 +7,7 @@ import org.junit.*;
 
 public class ShapeCollectorTestSuite {
     private static int testCounter = 0;
-    private ShapeCollector sc = new ShapeCollector();
+    private ShapeCollector sc;
 
     private Shape addSampleTriangle() {
         Shape shape = new Triangle(4,6);
@@ -28,6 +28,11 @@ public class ShapeCollectorTestSuite {
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
+    }
+
+    @Before
+    public void setup() {
+        sc = new ShapeCollector();
     }
 
     @Test
