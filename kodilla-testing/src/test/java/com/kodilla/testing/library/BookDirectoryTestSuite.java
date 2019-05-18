@@ -1,16 +1,20 @@
 package com.kodilla.testing.library;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 public class BookDirectoryTestSuite {
+
+    private LibraryDatabase libraryDatabaseMock;
+    private BookLibrary bookLibrary;
+    private LibraryUser libraryUser;
 
     private List<Book> generateListOfNBooks (int booksQuantity) {
         List<Book> resultList = new ArrayList<Book>();
@@ -21,11 +25,17 @@ public class BookDirectoryTestSuite {
         return resultList;
     }
 
+    @Before
+    public void setup() {
+        libraryDatabaseMock = mock(LibraryDatabase.class);
+        bookLibrary = new BookLibrary(libraryDatabaseMock);
+        libraryUser = new LibraryUser("Jan", "Filipek", "762314578");
+    }
+
+
     @Test
     public void testListBooksWithConditionsReturnList() {
         //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBooks = new ArrayList<Book>();
         Book book1 = new Book("Secrets of Alamo", "John Smith", 2008);
         Book book2 = new Book("Secretaries and Directors", "Dilbert Michigan", 2012);
@@ -48,8 +58,6 @@ public class BookDirectoryTestSuite {
     @Test
     public void testListBooksWithConditionMoreThan20() {
         //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf0Books = new ArrayList<Book>();
         List<Book> resultListOf15Books = generateListOfNBooks(15);
         List<Book> resultListOf40Books = generateListOfNBooks(40);
@@ -71,8 +79,6 @@ public class BookDirectoryTestSuite {
     @Test
     public void testListBooksWithConditionFragmentShorterThan3() {
         //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary (libraryDatabaseMock);
         List<Book> resultListOf10Books = generateListOfNBooks(10);
         when(libraryDatabaseMock.listBooksWithCondition(anyString())).thenReturn(resultListOf10Books);
 
@@ -86,9 +92,6 @@ public class BookDirectoryTestSuite {
     @Test
     public void testListBooksInHandsOfNoBooksBorrowed() {
         //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        LibraryUser libraryUser = new LibraryUser("Jan","Filipek","762314578");
         List<Book> listBook0 = new ArrayList<Book>();
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(listBook0);
 
@@ -102,9 +105,6 @@ public class BookDirectoryTestSuite {
     @Test
     public void testListBooksInHandsOfOneBook() {
         //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        LibraryUser libraryUser = new LibraryUser("Jan","Filipek","762314578");
         List<Book> listBook1 = new ArrayList<Book>();
         Book book = new Book("Pan Tadeusz", "Adam Mickiewicz", 2019);
         listBook1.add(book);
@@ -120,9 +120,6 @@ public class BookDirectoryTestSuite {
     @Test
     public void testListBooksInHandsOfFiveBooks() {
         //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        LibraryUser libraryUser = new LibraryUser("Jan","Filipek","762314578");
         List<Book> listBook5 = new ArrayList<Book>();
         Book book = new Book("Pan Tadeusz", "Adam Mickiewicz", 2019);
         Book book1 = new Book("Proces", "Franz Kafka", 2010);
@@ -142,6 +139,4 @@ public class BookDirectoryTestSuite {
         //Then
         assertEquals(5, resultList.size());
     }
-
-
 }
