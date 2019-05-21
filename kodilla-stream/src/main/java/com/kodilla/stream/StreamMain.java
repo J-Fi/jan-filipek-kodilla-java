@@ -41,12 +41,14 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
+        //Zadanie 7.1
         System.out.println("Poem decorator functions:");
         PoemBeautifier poemBeautifier = new PoemBeautifier();
         poemBeautifier.beautify("Pan Tadeusz", stringToBeautify -> (stringToBeautify.toUpperCase()));
         poemBeautifier.beautify("Iliada", stringToDecorate -> "ABC " + stringToDecorate + " ABC");
         poemBeautifier.beautify("Pan Cogito", stringToDecorate -> stringToDecorate.concat(" - Myślę, więc..."));
         poemBeautifier.beautify("Wiersze", stringToDecorate -> stringToDecorate + " najpiękniejsze.");
+        //koniec zadania 7.1
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
@@ -82,6 +84,7 @@ public class StreamMain {
                 .collect(Collectors.joining(",\n","<<", ">>"));
         System.out.println(theResultStringOfBooks);
 
+        //Zadanie 7.3
         Forum forum = new Forum();
         Map<Integer,ForumUser> theResultUserList = forum.getUserList().stream()
                 .filter(u -> u.getSex()=='M')
