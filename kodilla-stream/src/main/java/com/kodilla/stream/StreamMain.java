@@ -44,10 +44,14 @@ public class StreamMain {
         //Zadanie 7.1
         System.out.println("Poem decorator functions:");
         PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Pan Tadeusz", stringToBeautify -> (stringToBeautify.toUpperCase()));
-        poemBeautifier.beautify("Iliada", stringToDecorate -> "ABC " + stringToDecorate + " ABC");
-        poemBeautifier.beautify("Pan Cogito", stringToDecorate -> stringToDecorate.concat(" - Myślę, więc..."));
-        poemBeautifier.beautify("Wiersze", stringToDecorate -> stringToDecorate + " najpiękniejsze.");
+        String a = poemBeautifier.beautify("Pan Tadeusz", stringToBeautify -> (stringToBeautify.toUpperCase()));
+        String b = poemBeautifier.beautify("Iliada", stringToDecorate -> "ABC " + stringToDecorate + " ABC");
+        String c = poemBeautifier.beautify("Pan Cogito", stringToDecorate -> stringToDecorate.concat(" - Myślę, więc..."));
+        String d = poemBeautifier.beautify("Wiersze", stringToDecorate -> stringToDecorate + " najpiękniejsze.");
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
         //koniec zadania 7.1
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
