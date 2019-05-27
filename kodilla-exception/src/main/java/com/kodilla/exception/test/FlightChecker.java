@@ -11,10 +11,12 @@ public class FlightChecker {
         connections.put("Wroclaw", false);
         connections.put("Gdansk", true);
 
-        if ( ! connections.containsKey(flight.getArrivalAirport())) {
+        if ( !(connections.containsKey(flight.getArrivalAirport()) &&
+                connections.containsKey(flight.getDepartureAirport())) ||
+                flight.getDepartureAirport() == flight.getArrivalAirport()) {
             throw new RouteNotFoundException();
         } else {
-            return connections.get(flight.getArrivalAirport());
+            return connections.get(flight.getArrivalAirport()) && connections.get(flight.getDepartureAirport());
         }
     }
 }
