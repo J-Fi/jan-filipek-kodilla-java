@@ -32,4 +32,11 @@ public class ConnectionFinder {
         }
         return allViaFlights;
     }
+
+    public List<Connection> getViaFlights_2 (List<Connection> allFlights, String departureCity, String arrivalCity) {
+        return allFlights.stream()
+                .filter(f -> f.getTransferCity() != null)
+                .filter(f -> f.getDepartureCity().equals(departureCity) && f.getArrivalCity().equals(arrivalCity))
+                .collect(Collectors.toList());
+    }
 }

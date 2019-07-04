@@ -21,6 +21,17 @@ public class ConnectionRetriever {
         }
     }
 
+    public void retrieveNondirectConnections_2 (String departureCity, String arrivalCity) {
+        List<Connection> viaFlights = cf.getViaFlights_2(cdr.RetrieveConnections(),departureCity, arrivalCity);
+        for (Connection i : viaFlights) {
+            for (String cityName : i.getTransferCity()){
+                System.out.println("From " + i.getDepartureCity() + "(Time: " + i.getDepartureTime() + ")" +
+                        ", To: " + i.getArrivalCity() + "(Time: " + i.getArrivalTime() + ")"
+                        + ", via: " + cityName);
+            }
+        }
+    }
+
     public void retrieveConnectionsFromTheCity (String departureCity) {
         List<Connection> flightsFrom = cf.getFlightsFromTheCity(cdr.RetrieveConnections(), departureCity);
         for (Connection i : flightsFrom) {

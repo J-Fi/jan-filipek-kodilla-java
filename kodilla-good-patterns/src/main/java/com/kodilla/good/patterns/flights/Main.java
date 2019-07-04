@@ -6,6 +6,6 @@ public class Main {
 
         cr.retrieveConnectionsFromTheCity("Gdańsk");
         cr.retrieveConnectionsToTheCity("Wrocław");
-        cr.retrieveNondirectConnections("Gdańsk", "Kielce");
+        cr.retrieveNondirectConnections_2("Warszawa", "Wrocław");
     }
 }

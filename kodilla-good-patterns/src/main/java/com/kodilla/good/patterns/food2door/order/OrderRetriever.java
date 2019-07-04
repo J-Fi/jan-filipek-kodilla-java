@@ -9,7 +9,7 @@ public class OrderRetriever {
     Client client = new Client("Jan Filipek", "janflpk@yahoo.com", 123452);
 
     public Order retrieve_1() {
-        SpecificProducer producer_1 = new SpecificProducer("ExtraFoodShop", new CommunicationMethodEmail(), new RepositoryMethodServer(), new PurchaseMethodCredit());
+        ExtraFoodShop producer_1 = new ExtraFoodShop("ExtraFoodShop", new CommunicationMethodEmail(), new RepositoryMethodServer(), new PurchaseMethodCredit());
         SpecificProduct product_1 = new SpecificProduct("Carrot");
         int volumeOfProduct = 3;
 
@@ -17,7 +17,7 @@ public class OrderRetriever {
     }
 
     public Order retrieve_2() {
-        SpecificProducer producer_2 = new SpecificProducer("HealthyShop", new CommunicationMethodSms(), new RepositoryMethodFile(), new PurchaseMethodPaypal());
+        HealthyShop producer_2 = new HealthyShop("HealthyShop", new CommunicationMethodSms(), new RepositoryMethodFile(), new PurchaseMethodPaypal());
         SpecificProduct product_2 = new SpecificProduct("Apple");
         int volumeOfProduct = 5;
 
@@ -25,7 +25,7 @@ public class OrderRetriever {
     }
 
     public Order retrieve_3() {
-        SpecificProducer producer_3 = new SpecificProducer("GlutenFreeShop", new CommunicationMethodEmail(), new RepositoryMethodFile(), new PurchaseMethodCredit());
+        GlutenFreeShop producer_3 = new GlutenFreeShop("GlutenFreeShop", new CommunicationMethodEmail(), new RepositoryMethodFile(), new PurchaseMethodCredit());
         SpecificProduct product_3 = new SpecificProduct("Pear");
         int volumeOfProduct = 13;
 
