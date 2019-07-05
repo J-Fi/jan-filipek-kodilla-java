@@ -12,14 +12,14 @@ public class ConnectionRetriever {
         this.cdr = new ConnectionDatabaseRetriever();
     }
 
-    public void retrieveNondirectConnections(String departureCity, String arrivalCity) {
+/*    public void retrieveNondirectConnections(String departureCity, String arrivalCity) {
         List<NonDirectFlight> viaFlights = cf.getViaFlights(cdr.RetrieveConnections(),departureCity, arrivalCity);
         for (NonDirectFlight i : viaFlights) {
             System.out.println("From " + i.getDepartureCity() + "(Time: " + i.getDepartureTime() + ")" +
                     ", To: " + i.getArrivalCity() + "(Time: " + i.getArrivalTime() + ")"
                     + ", via: " + i.getViaCity() + "(Take-off time: " + i.getDepartureTime() + ")");
         }
-    }
+    }*/
 
     public void retrieveNondirectConnections_2 (String departureCity, String arrivalCity) {
         List<Connection> viaFlights = cf.getViaFlights_2(cdr.RetrieveConnections(),departureCity, arrivalCity);

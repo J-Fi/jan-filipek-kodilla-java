@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.flights;
+/*ackage com.kodilla.good.patterns.flights;
 
 import java.time.LocalTime;
 
@@ -79,4 +79,4 @@ public class NonDirectFlight {
         result = 31 * result + getArrivalTime().hashCode();
         return result;
     }
-}
+}*/
