@@ -10,7 +10,7 @@ import java.util.List;
 public class Library {
     private final List<String> books = new ArrayList<>();
 
-    @Autowired
+    //@Autowired
     private LibraryDbController libraryDbController;
 
 /*    @Autowired
@@ -20,11 +20,10 @@ public class Library {
 
 
     //@Autowired
-    /*public Library(final LibraryDbController libraryDbController) {
+    public Library(final LibraryDbController libraryDbController) {
         this.libraryDbController = libraryDbController;
-    }*/
-
-/*    public Library() {
+    }
+    /*public Library() {
         // do nothing
     }*/
 
