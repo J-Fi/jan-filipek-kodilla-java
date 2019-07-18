@@ -1,0 +1,9 @@
+insert into POSTS (USER_ID, BODY)
+values (3, "Oh my Gosh!");
+
+update POSTS
+set BODY = "To delete"
+where ID = 7;
+
+delete from POSTS
+where ID = 7;
