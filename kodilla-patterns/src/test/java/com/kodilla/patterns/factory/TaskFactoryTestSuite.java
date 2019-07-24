@@ -9,21 +9,8 @@ import org.junit.Test;
 public class TaskFactoryTestSuite {
     private TasksStatusLoader tsl = new TasksStatusLoader();
 
-    @Test
-    public void testFactoryPainting() {
-        //Given
-        TaskFactory factory = new TaskFactory();
 
-        //When
-        Task painting = factory.taskFactory(TaskFactory.PAINTING);
-        tsl.loadTaskStatus(painting);
 
-        //Then
-        Assert.assertEquals("Success!", painting.executeTask());
-        Assert.assertEquals("Paint house", painting.getTaskName());
-        Assert.assertEquals(true, painting.isTaskExecuted());
-        Assert.assertEquals(1, tsl.getTasksStatusMap().size());
-    }
 
     @Test
     public void testFactoryDriving() {
@@ -38,7 +25,7 @@ public class TaskFactoryTestSuite {
         Assert.assertEquals("Success!", driving.executeTask());
         Assert.assertEquals("Drive for weekend", driving.getTaskName());
         Assert.assertEquals(true, driving.isTaskExecuted());
-        Assert.assertEquals(2, tsl.getTasksStatusMap().size());
+        Assert.assertEquals(1, tsl.getTasksStatusMap().size());
     }
 
     @Test
@@ -54,6 +41,21 @@ public class TaskFactoryTestSuite {
         Assert.assertEquals("Success!", shopping.executeTask());
         Assert.assertEquals("Buy food", shopping.getTaskName());
         Assert.assertEquals(true, shopping.isTaskExecuted());
+        Assert.assertEquals(2, tsl.getTasksStatusMap().size());
+    }
+    @Test
+    public void testFactoryPainting() {
+        //Given
+        TaskFactory factory = new TaskFactory();
+
+        //When
+        Task painting = factory.taskFactory(TaskFactory.PAINTING);
+        tsl.loadTaskStatus(painting);
+
+        //Then
+        Assert.assertEquals("Success!", painting.executeTask());
+        Assert.assertEquals("Paint house", painting.getTaskName());
+        Assert.assertEquals(true, painting.isTaskExecuted());
         Assert.assertEquals(3, tsl.getTasksStatusMap().size());
     }
 }
