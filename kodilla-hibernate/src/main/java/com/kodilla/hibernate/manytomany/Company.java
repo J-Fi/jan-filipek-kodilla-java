@@ -1,3 +1,4 @@
+/*
 package com.kodilla.hibernate.manytomany;
 
 import com.sun.istack.internal.NotNull;
@@ -51,3 +52,4 @@ public class Company {
         this.name = name;
     }
 }
+*/

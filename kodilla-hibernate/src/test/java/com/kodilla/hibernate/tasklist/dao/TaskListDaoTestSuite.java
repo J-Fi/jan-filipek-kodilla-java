@@ -1,25 +1,54 @@
 package com.kodilla.hibernate.tasklist.dao;
 
+import com.kodilla.hibernate.task.Task;
+//import com.kodilla.hibernate.task.TaskFinancialDetails;
+import com.kodilla.hibernate.task.dao.TaskDao;
+import com.kodilla.hibernate.tasklist.TaskList;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TaskListDaoTestSuite {
-
-
     @Autowired
-    private TaskDao taskDao;
+    private TaskListDao taskListDao;
+    /*@Autowired
+    private TaskDao taskDao;*/
+
     @Test
+    public void testFindByListName() {
+        //Given
+        TaskList taskList = new TaskList("To do", "Learn Hibernate");
+
+        //When
+        taskListDao.save(taskList);
+
+        //Then
+        int id = taskList.getId();
+        String name = taskList.getListName();
+        List<TaskList> readTaskList = taskListDao.findByListName(name);
+        Assert.assertFalse(readTaskList.isEmpty());
+
+        //Cleanup
+        //taskListDao.deleteById(id);
+    }
+
+
+    /*@Test
     public void testNamedQueries() {
         //Given
         Task task1 = new Task("Test: Study Hibernate", 3);
         Task task2 = new Task("Test: Practice Named Queries", 6);
         Task task3 = new Task("Test: Study native queries", 7);
-        Task task4 = new Task("Test: Makse some tests", 13);
+        Task task4 = new Task("Test: Makssome tests", 13);
 
         TaskFinancialDetails tfd1 = new TaskFinancialDetails(new BigDecimal(5), false);
         TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
@@ -59,6 +88,6 @@ public class TaskListDaoTestSuite {
             //CleanUp
             taskListDao.deleteById(id);
         }
-    }
+    }*/
 }
 
