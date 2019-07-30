@@ -1,4 +1,3 @@
-/*
 package com.kodilla.hibernate.manytomany;
 
 import com.sun.istack.internal.NotNull;
@@ -68,4 +67,4 @@ public class Employee {
     private void setLastname(String lastname) {
         this.lastname = lastname;
     }
-}*/
+}
