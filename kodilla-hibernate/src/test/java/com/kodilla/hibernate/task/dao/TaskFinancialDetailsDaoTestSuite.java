@@ -1,3 +1,4 @@
+/*
 package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.TaskFinancialDetails;
@@ -34,3 +35,4 @@ public class TaskFinancialDetailsDaoTestSuite {
         taskFinancialDetailsDao.deleteById(id);
     }
 }
+*/

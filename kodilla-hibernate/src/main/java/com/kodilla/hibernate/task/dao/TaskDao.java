@@ -14,7 +14,7 @@ import java.util.List;
 public interface TaskDao extends CrudRepository<Task, Integer> {
     List<Task> findByDuration(int duration);
 
-    @Query
+/*    @Query
     List<Task> retrieveLongTasks();
 
     @Query
@@ -24,5 +24,5 @@ public interface TaskDao extends CrudRepository<Task, Integer> {
     List<Task> retrieveTasksWithEnoughTime();
 
     @Query
-    List<Task> retrieveTaskssWithDurationLongerThan(@Param("DURATION") int duration);
+    List<Task> retrieveTaskssWithDurationLongerThan(@Param("DURATION") int duration);*/
 }

@@ -1,11 +1,12 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
 import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@NamedQueries({
+/*@NamedQueries({
         @NamedQuery(
                 name = "Task.retrieveLongTasks",
                 query = "FROM Task WHERE duration > 10"
@@ -24,7 +25,7 @@ import java.util.Date;
         query = "SELECT * FROM TASKS" +
                 "WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
         resultClass = Task.class
-)
+)*/
 @Entity
 @Table(name = "TASKS")
 public class Task {
@@ -32,10 +33,10 @@ public class Task {
     private String description;
     private Date created;
     private int duration;
-    private TaskFinancialDetails taskFinancialDetails;
-    private TaskList taskList;
+    //private TaskFinancialDetails taskFinancialDetails;
+    //private TaskList taskList;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    /*@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "TASKS_FINANCIALS_ID")
     public TaskFinancialDetails getTaskFinancialDetails() {
         return taskFinancialDetails;
@@ -43,8 +44,9 @@ public class Task {
 
     public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
         this.taskFinancialDetails = taskFinancialDetails;
-    }
+    }*/
 
+/*
     @ManyToOne
     @JoinColumn(name = "TASKLIST_ID"")
     public TaskList getTaskList() {
@@ -54,6 +56,7 @@ public class Task {
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;
     }
+*/
 
     public Task(String description, int duration) {
         this.description = description;
@@ -65,7 +68,7 @@ public class Task {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "ID", unique = true)
     public int getId() {
