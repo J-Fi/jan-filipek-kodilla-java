@@ -1,4 +1,3 @@
-/*
 package com.kodilla.hibernate.task;
 
 import com.sun.istack.internal.NotNull;
@@ -51,4 +50,3 @@ public class TaskFinancialDetails {
         this.paid = paid;
     }
 }
-*/

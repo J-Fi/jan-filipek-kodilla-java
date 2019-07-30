@@ -2,6 +2,7 @@ package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.Task;
 //import com.kodilla.hibernate.task.TaskFinancialDetails;
+import com.kodilla.hibernate.task.TaskFinancialDetails;
 import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.Assert;
 import org.junit.Test;
@@ -56,7 +57,7 @@ public class TaskDaoTestSuite {
         taskDao.deleteById(id);
     }
 
-    /*@Test
+    @Test
     public void testTaskDaoSaveWithFinancialDetails() {
         //Given
         Task task = new Task(DESCRIPTION, 30);
@@ -71,7 +72,7 @@ public class TaskDaoTestSuite {
 
         //CleanUp
         //taskDao.deleteById(id);
-    }*/
+    }
 
    /* @Test
     public void testTaskListDaoSaveWithTasks() {
