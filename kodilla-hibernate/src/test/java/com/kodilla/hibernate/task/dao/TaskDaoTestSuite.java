@@ -35,7 +35,7 @@ public class TaskDaoTestSuite {
         Assert.assertTrue(readTask.isPresent());
 
         //CleanUp
-        //taskDao.deleteById(id);
+        taskDao.deleteById(id);
     }
 
     @Test
@@ -52,8 +52,8 @@ public class TaskDaoTestSuite {
         Assert.assertEquals(1, readTasks.size());
 
         //CleanUp
-        //int id = readTasks.get(0).getId();
-        //taskDao.deleteById(id);
+        int id = readTasks.get(0).getId();
+        taskDao.deleteById(id);
     }
 
     /*@Test
