@@ -38,7 +38,7 @@ public class TaskListDaoTestSuite {
         Assert.assertFalse(readTaskList.isEmpty());
 
         //Cleanup
-        //taskListDao.deleteById(id);
+        taskListDao.deleteById(id);
     }
 
 
