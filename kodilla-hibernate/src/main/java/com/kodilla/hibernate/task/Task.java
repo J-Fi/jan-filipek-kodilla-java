@@ -34,7 +34,7 @@ public class Task {
     private Date created;
     private int duration;
     private TaskFinancialDetails taskFinancialDetails;
-    //private TaskList taskList;
+    private TaskList taskList;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "TASKS_FINANCIALS_ID")
@@ -46,9 +46,8 @@ public class Task {
         this.taskFinancialDetails = taskFinancialDetails;
     }
 
-/*
     @ManyToOne
-    @JoinColumn(name = "TASKLIST_ID"")
+    @JoinColumn(name = "TASKLIST_ID")
     public TaskList getTaskList() {
         return taskList;
     }
@@ -56,7 +55,6 @@ public class Task {
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;
     }
-*/
 
     public Task(String description, int duration) {
         this.description = description;
