@@ -13,6 +13,7 @@ public class Item {
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
+    private Invoice invoice;
 
     public Item() {
     }
@@ -37,10 +38,8 @@ public class Item {
         this.id = id;
     }
 
-    @NotNull
-    @Column(name = "PRODUCT")
     @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
@@ -77,5 +76,15 @@ public class Item {
 
     public void setValue(BigDecimal value) {
         this.value = value;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 }

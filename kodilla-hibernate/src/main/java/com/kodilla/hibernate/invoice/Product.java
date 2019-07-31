@@ -13,7 +13,7 @@ public class Product {
 
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "item",
+            mappedBy = "product",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
