@@ -6,7 +6,7 @@ import com.sun.istack.internal.NotNull;
 import javax.persistence.*;
 import java.util.Date;
 
-/*@NamedQueries({
+@NamedQueries({
         @NamedQuery(
                 name = "Task.retrieveLongTasks",
                 query = "FROM Task WHERE duration > 10"
@@ -21,11 +21,11 @@ import java.util.Date;
         )
 })
 @NamedNativeQuery(
-        name = "Task.retrieveTaskWithEnoughTIme",
+        name = "Task.retrieveTaskWithEnoughTime",
         query = "SELECT * FROM TASKS" +
-                "WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
+                " WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
         resultClass = Task.class
-)*/
+)
 @Entity
 @Table(name = "TASKS")
 public class Task {
