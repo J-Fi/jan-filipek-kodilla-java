@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "ITEM")
+@Table(name = "ITEMS")
 public class Item {
     private int id;
     private Product product;
@@ -18,9 +18,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(int id, Product product, BigDecimal price, int quantity, BigDecimal value) {
-        this.id = id;
-        this.product = product;
+    public Item(BigDecimal price, int quantity, BigDecimal value) {
         this.price = price;
         this.quantity = quantity;
         this.value = value;
@@ -38,7 +36,12 @@ public class Item {
         this.id = id;
     }
 
-    @ManyToOne
+/*    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")*/
+    @OneToOne(
+        cascade = CascadeType.ALL,
+        fetch = FetchType.EAGER
+    )
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;

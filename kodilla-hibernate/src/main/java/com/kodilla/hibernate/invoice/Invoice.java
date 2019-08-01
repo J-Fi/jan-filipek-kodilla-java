@@ -3,6 +3,7 @@ package com.kodilla.hibernate.invoice;
 import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,15 +11,13 @@ import java.util.List;
 public class Invoice {
     private int id;
     private String number;
-    private List<Item> items;
+    private List<Item> items = new ArrayList<>();
 
     public Invoice() {
     }
 
-    public Invoice(int id, String number, List<Item> items) {
-        this.id = id;
+    public Invoice(String number) {
         this.number = number;
-        this.items = items;
     }
 
     @Id
