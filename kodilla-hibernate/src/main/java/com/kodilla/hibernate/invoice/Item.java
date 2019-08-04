@@ -36,13 +36,13 @@ public class Item {
         this.id = id;
     }
 
-/*    @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")*/
-    @OneToOne(
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+/*    @OneToOne(
         cascade = CascadeType.ALL,
         fetch = FetchType.EAGER
     )
-    @JoinColumn(name = "PRODUCT_ID")
+    @JoinColumn(name = "PRODUCT_ID")*/
     public Product getProduct() {
         return product;
     }

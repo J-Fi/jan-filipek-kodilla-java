@@ -11,19 +11,19 @@ import java.util.List;
 public class Product {
     private int id;
     private String name;
-    //private Item items;
+    private Item item;
 
 /*    @OneToOne(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
     @JoinColumn(name = "ITEM_ID")*/
-/*    public Item getItems() {
-        return items;
+    /*public Item getItem() {
+        return item;
     }
 
-    public void setItems(Item items) {
-        this.items = items;
+    public void setItem(Item item) {
+        this.item = item;
     }*/
 
     public Product() {
@@ -53,5 +53,19 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @OneToMany(
+            targetEntity = Item.class,
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }
