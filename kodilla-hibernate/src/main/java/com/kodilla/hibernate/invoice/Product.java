@@ -11,7 +11,7 @@ import java.util.List;
 public class Product {
     private int id;
     private String name;
-    private Item item;
+    private List<Item> items2 = new ArrayList<>();
 
 /*    @OneToOne(
             cascade = CascadeType.ALL,
@@ -61,11 +61,11 @@ public class Product {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    public Item getItem() {
-        return item;
+    public List<Item> getItems2() {
+        return items2;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setItems2(List<Item> items2) {
+        this.items2 = items2;
     }
 }
