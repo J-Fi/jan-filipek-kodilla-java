@@ -11,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -46,10 +44,9 @@ public class InvoiceDaoTestSuite {
         chairItem.setProduct(chair);
         chairItem.setInvoice(invoice);
 
-/*        mirror.setItems2(mirrorItem);
-        table.setItems2(tableItem);
-        chair.setItems2(chairItem);*/
-
+        productDao.save(mirror);
+        productDao.save(table);
+        productDao.save(chair);
 
         mirror.getItems2().add(mirrorItem);
         table.getItems2().add(tableItem);
@@ -59,25 +56,17 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(tableItem);
         invoice.getItems().add(chairItem);
 
-
-
         //When
         invoiceDao.save(invoice);
-/*
-        productDao.save(mirror);
-        productDao.save(table);
-        productDao.save(chair);
-*/
-
-
 
         //Then
-        //int id = invoice.getId();
-        //Optional<Invoice> readInvoice = invoiceDao.findById(id);
-        //Assert.assertTrue(readInvoice.isPresent());
+        int id = invoice.getId();
+        Optional<Invoice> readInvoice = invoiceDao.findById(id);
+        Assert.assertTrue(readInvoice.isPresent());
 
         //Cleanup
-        //invoiceDao.deleteById(id);
+        invoiceDao.deleteById(id);
+        productDao.deleteAll();
     }
 
 }

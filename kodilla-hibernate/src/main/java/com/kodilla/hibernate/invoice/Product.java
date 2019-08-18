@@ -13,19 +13,6 @@ public class Product {
     private String name;
     private List<Item> items2 = new ArrayList<>();
 
-/*    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
-    @JoinColumn(name = "ITEM_ID")*/
-    /*public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }*/
-
     public Product() {
     }
 
