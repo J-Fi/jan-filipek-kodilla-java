@@ -6,9 +6,17 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.retrieveEmployeeSpecificNameOf",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
+@NamedQueries({
+        @NamedQuery (
+                name = "Employee.retrieveEmployeeSpecificNameOf",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
+        @NamedQuery (
+                name = "Employee.retrieveEmployeeNameFromPartOfIt",
+                query = "FROM Employee WHERE lastname LIKE :ARG"
+        )
+}
+
 )
 
 @Entity
