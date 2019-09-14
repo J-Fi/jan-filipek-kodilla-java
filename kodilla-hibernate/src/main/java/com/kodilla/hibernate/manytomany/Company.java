@@ -6,10 +6,20 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveCompanyNamesWhichFirstThreeLettersAre",
-        query = "SELECT * FROM COMPANIES WHERE SUBSTR(COMPANY_NAME , 1, 3) = :FIRSTTHREELETTERS",
-        resultClass = Company.class
+@NamedNativeQueries({
+        @NamedNativeQuery (
+                name = "Company.retrieveCompanyNamesWhichFirstThreeLettersAre",
+                query = "SELECT * FROM COMPANIES WHERE SUBSTR(COMPANY_NAME , 1, 3) = :FIRSTTHREELETTERS",
+                resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanyNamesFromPartOfName",
+                query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE :ARG",
+                resultClass = Company.class
+        )
+
+}
+
 )
 
 @Entity
