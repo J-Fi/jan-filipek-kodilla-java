@@ -16,7 +16,9 @@ public class PizzaOrderTestSuite {
 
         //When
         BigDecimal cost = pizzaOrder.getCost();
+        System.out.println("You will pay " + cost + " $ for your pizza.");
         String description = pizzaOrder.getDescription();
+        System.out.println("You ordered: " + description);
 
         //Then
         assertEquals(new BigDecimal("44"),cost);
