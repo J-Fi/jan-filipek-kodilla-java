@@ -20,8 +20,6 @@ public class Facade {
     public Facade() {
     }
 
-
-
     public List<Company> findCompanyNames(String partName) {
         return companyDao.retrieveCompanyNamesFromPartOfName(partName);
     }
