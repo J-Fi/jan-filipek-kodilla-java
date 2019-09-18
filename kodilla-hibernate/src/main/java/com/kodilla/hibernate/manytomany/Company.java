@@ -18,9 +18,7 @@ import java.util.List;
                 resultClass = Company.class
         )
 
-}
-
-)
+})
 
 @Entity
 @Table(name = "COMPANIES")
