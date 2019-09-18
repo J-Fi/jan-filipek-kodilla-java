@@ -12,5 +12,4 @@ public class KodillaPatterns2ApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }
