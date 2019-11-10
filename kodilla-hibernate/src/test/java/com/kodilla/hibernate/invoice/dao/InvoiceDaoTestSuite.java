@@ -60,9 +60,9 @@ public class InvoiceDaoTestSuite {
         invoiceDao.save(invoice);
 
         //Then
-        //int id = invoice.getId();
-        //Optional<Invoice> readInvoice = invoiceDao.findById(id);
-        //Assert.assertTrue(readInvoice.isPresent());
+        int id = invoice.getId();
+        Optional<Invoice> readInvoice = invoiceDao.findById(id);
+        Assert.assertTrue(readInvoice.isPresent());
 
         //Cleanup
         //invoiceDao.deleteById(id);
