@@ -11,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -22,50 +20,53 @@ public class InvoiceDaoTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
 
+    @Autowired
+    private ProductDao productDao;
+
     @Test
     public void testInvoiceDaoSave() {
         //Given
+        Invoice invoice = new Invoice("2019/WA/LK");
+
         Product mirror = new Product("mirror");
         Product table = new Product("table");
         Product chair = new Product("chair");
 
-        Invoice invoice = new Invoice("2019/WA/LK");
-
         Item mirrorItem = new Item(new BigDecimal("123998"), 10, new BigDecimal(1239980));
-        Item tableItem = new Item(new BigDecimal("12094"), 1, new BigDecimal(12094));
-        Item chairItem = new Item(new BigDecimal("321099"), 100, new BigDecimal(32109900));
-
-/*        mirror.setItems(mirrorItem);
-        table.setItems(tableItem);
-        chair.setItems(chairItem);*/
         mirrorItem.setProduct(mirror);
-        tableItem.setProduct(table);
-        chairItem.setProduct(chair);
-
         mirrorItem.setInvoice(invoice);
+
+        Item tableItem = new Item(new BigDecimal("12094"), 1, new BigDecimal(12094));
+        tableItem.setProduct(table);
         tableItem.setInvoice(invoice);
+
+        Item chairItem = new Item(new BigDecimal("321099"), 100, new BigDecimal(32109900));
+        chairItem.setProduct(chair);
         chairItem.setInvoice(invoice);
 
-/*        mirror.getItems().add(mirrorItem);
-        table.getItems().add(tableItem);
-        chair.getItems().add(chairItem);*/
+        productDao.save(mirror);
+        productDao.save(table);
+        productDao.save(chair);
+
+        mirror.getItems2().add(mirrorItem);
+        table.getItems2().add(tableItem);
+        chair.getItems2().add(chairItem);
 
         invoice.getItems().add(mirrorItem);
         invoice.getItems().add(tableItem);
         invoice.getItems().add(chairItem);
 
-
-
         //When
         invoiceDao.save(invoice);
 
         //Then
-        //int id = invoice.getId();
-        //Optional<Invoice> readInvoice = invoiceDao.findById(id);
-        //Assert.assertTrue(readInvoice.isPresent());
+        int id = invoice.getId();
+        Optional<Invoice> readInvoice = invoiceDao.findById(id);
+        Assert.assertTrue(readInvoice.isPresent());
 
         //Cleanup
-        //invoiceDao.deleteById(id);
+        invoiceDao.deleteById(id);
+        productDao.deleteAll();
     }
 
 }

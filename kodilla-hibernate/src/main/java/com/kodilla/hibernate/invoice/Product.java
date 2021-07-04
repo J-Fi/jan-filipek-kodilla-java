@@ -11,20 +11,7 @@ import java.util.List;
 public class Product {
     private int id;
     private String name;
-    //private Item items;
-
-/*    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
-    @JoinColumn(name = "ITEM_ID")*/
-/*    public Item getItems() {
-        return items;
-    }
-
-    public void setItems(Item items) {
-        this.items = items;
-    }*/
+    private List<Item> items2 = new ArrayList<>();
 
     public Product() {
     }
@@ -53,5 +40,19 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @OneToMany(
+            targetEntity = Item.class,
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Item> getItems2() {
+        return items2;
+    }
+
+    public void setItems2(List<Item> items2) {
+        this.items2 = items2;
     }
 }
